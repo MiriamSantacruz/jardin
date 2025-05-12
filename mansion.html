@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>La Mansión de las Sombras</title>
+    <link rel="stylesheet" href="retro-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #9B5DE5, #F15BB5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Courier New', monospace;
+            padding: 20px;
+        }
+
+        .story-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .story-card {
+            background-image: url('parchment-bg.jpg');
+            background-color: #f4d03f;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px;
+            font-family: 'Times New Roman', serif;
+            color: #4a4a4a;
+            line-height: 1.6;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .story-title {
+            color: #ffffff;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            text-shadow: 
+                2px 2px 0 #9B5DE5,
+                4px 4px 0 #5B6EE1;
+            letter-spacing: 3px;
+        }
+
+        .story-text {
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: justify;
+            padding: 20px;
+            background: rgba(91, 110, 225, 0.2);
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(241, 91, 181, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding: 0 10px;
+        }
+
+        .nav-button {
+            background: rgba(254, 228, 64, 0.9);
+            color: #5B6EE1;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        .background-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+    }
+
+    .shape {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: float 20s infinite;
+    }
+
+    .shape:nth-child(1) {
+        width: 150px;
+        height: 150px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .shape:nth-child(2) {
+        width: 100px;
+        height: 100px;
+        top: 60%;
+        right: 15%;
+        animation-delay: -5s;
+    }
+
+    .shape:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        bottom: 20%;
+        left: 20%;
+        animation-delay: -10s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(10px, -20px) rotate(90deg);
+        }
+        50% {
+            transform: translate(20px, 0) rotate(180deg);
+        }
+        75% {
+            transform: translate(10px, 20px) rotate(270deg);
+        }
+    }
+
+    .music-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(241, 91, 181, 0.9);
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 0.9em;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .music-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    .music-button i {
+        font-size: 1.2em;
+    }
+
+    .music-button.playing {
+        background: rgba(254, 228, 64, 0.9);
+        color: #5B6EE1;
+    }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <!-- Las burbujas se crearán dinámicamente con JavaScript -->
+    </div>
+    <button class="menu-button" onclick="window.location.href='menu.html'">← MENU</button>
+    <audio id="bgMusic" loop>
+        <source src="mansion.mp3" type="audio/mpeg">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+    <button class="music-button" onclick="toggleMusic()">
+        <i class="fas fa-volume-mute" id="musicIcon"></i>
+        <span>Música</span>
+    </button>
+    <div class="story-container">
+        <h1 class="story-title">La Mansión de las Sombras</h1>
+        <div class="story-text">
+            <p>Despierto todos los días a las 5:45 de la mañana y repaso mi rutina mentalmente antes de decidir levantarme.</p>
+            <p>Después de arreglarme tomo mi lista de tareas y bajo al comedor, no es un desayuno muy alentador, pero sirve para mantenerme en pie hasta la próxima comida, a pesar de llevar 15 años trabajando en esta mansión nunca he visto al chef para hacerle frente sobre su comida.</p>
+            <p>Con los años me acostumbre a la simpleza en cuanto al sabor y presentación, sin embargo, antes de comer me gusta imaginar que, al morder una cantidad infinita de sabor invade mi boca, que las texturas y contrastes en los ingredientes son dignos de la realeza.</p>
+        </div>
+        <div class="nav-buttons">
+            <button class="retro-button">←</button>
+            <button class="retro-button">→</button>
+        </div>
+    </div>
+    <script>
+        function createRandomShapes() {
+            const container = document.querySelector('.background-shapes');
+            const numberOfShapes = 10; // Puedes ajustar el número de burbujas
+
+            for (let i = 0; i < numberOfShapes; i++) {
+                const shape = document.createElement('div');
+                shape.className = 'shape';
+                
+                // Tamaño aleatorio entre 30px y 150px
+                const size = Math.random() * 120 + 30;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                shape.style.left = `${Math.random() * 100}%`;
+                shape.style.top = `${Math.random() * 100}%`;
+                
+                // Retraso aleatorio en la animación
+                shape.style.animationDelay = `${Math.random() * -20}s`;
+                
+                container.appendChild(shape);
+            }
+        }
+
+        // Llamar a la función cuando se carga la página
+        window.onload = createRandomShapes;
+
+        const bgMusic = document.getElementById('bgMusic');
+        const musicButton = document.querySelector('.music-button');
+        const musicIcon = document.getElementById('musicIcon');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.className = 'fas fa-volume-mute';
+                musicButton.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicIcon.className = 'fas fa-volume-up';
+                musicButton.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // Asegurarse de que la música comience en pausa
+        bgMusic.pause();
+    </script>
+</body>
+</html>
